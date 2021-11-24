@@ -1,13 +1,15 @@
 package Admin;
 
-public class Trainer extends Admin{//Mo//
+public class Trainer extends Admin{
+
+
+    //Mo//
 
 
     //constructor inherited by Admin class
-    public void trainer(String username,String password) {
-   //     super(username,password);
+    public Trainer(int id, String fullName, int phoneNumber, String email, String address) {
+        super(id, fullName, phoneNumber, email, address);
     }
-
 
     //Methods
     public void addSwimmer() {
