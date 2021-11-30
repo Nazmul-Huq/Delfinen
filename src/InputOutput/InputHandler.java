@@ -69,7 +69,7 @@ public class InputHandler {
     }
 
     public int getSwimmerId() {
-        System.out.println("Enter Swimmer Id");
+        System.out.println("Enter Admin.Swimmer Id");
         int swimmerId = Integer.parseInt(scanner.nextLine());
         return swimmerId;
     }

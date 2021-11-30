@@ -69,7 +69,7 @@ public class Menu {
      * print the options that a Trainer can do in the system
      */
     private void printTrainerMenuOptions(){
-        System.out.println("1. Add swimmer, 2. Add swimmer info, 3. Add swimmer to team, 4. Add Swimming Discipline, 5. Edit List, 6. Add swimmer to event, 7. Add training result, 8. See best swimmer, 9. Exit app");
+        System.out.println("1. Add swimmer, 2. Show swimmer info, 3. Add swimmer to team, 4. Add Swimming Discipline, 5. Edit List, 6. Add swimmer to event, 7. Add training result, 8. See best swimmer, 9. Exit app");
     }
 
     /**

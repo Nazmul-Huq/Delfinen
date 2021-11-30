@@ -12,7 +12,7 @@ public class SystemController {
      * instantiates necessary objects
      */
     Chairman chairman = new Chairman();
-    Trainer trainer = new Trainer("Bellabop","EdwardsMyBoo");
+    Trainer trainer = new Trainer();
     Statistic statistic = new Statistic();
     Menu menu = new Menu();
    // BookKeeper bookKeeper = new BookKeeper();
@@ -111,8 +111,8 @@ public class SystemController {
                 break;
 
             case 2:
-                System.out.println("Trainer adding swimmer info");
-                trainer.addSwimmerInfo();
+                System.out.println("swimmers info");
+                trainer.showSwimmerInfo();
                 break;
 
             case 3:
