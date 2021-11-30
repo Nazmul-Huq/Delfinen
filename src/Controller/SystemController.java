@@ -1,16 +1,17 @@
 package Controller;
 
-import InputOutput.Menu;
-import Statistics.Statistic;
+import Admin.BookKeeper;
+import Admin.Chairman;
+import Admin.Trainer;
 
 public class SystemController {
 
     /**
      * instantiates necessary objects
      */
-    AddInformation addInformation = new AddInformation();
-    Statistic statistic = new Statistic();
-    Menu menu = new Menu();
+    Chairman chairman = new Chairman();
+    Trainer trainer = new Trainer("Bellabop","EdwardsMyBoo");
+   // BookKeeper bookKeeper = new BookKeeper();
 
     /**
      * start a given task
@@ -50,7 +51,6 @@ public class SystemController {
 
             case 1:
                 System.out.println("Chairman adding member");
-                addInformation.addCompetitionSwimmer();
                 //chairman.addMember();
                 break;
 
@@ -103,37 +103,38 @@ public class SystemController {
 
             case 1:
                 System.out.println("Trainer adding swimmer");
-                //trainer.addSwimmer();
+                trainer.addSwimmer();
                 break;
 
             case 2:
                 System.out.println("Trainer adding swimmer info");
-                //trainer.addSwimmerInfo();
+                trainer.addSwimmerInfo();
                 break;
 
             case 3:
                 System.out.println("Trainer adding swimmer to team");
-                //trainer.addSwimmerToATeam();
+                trainer.addSwimmerToATeam();
                 break;
 
             case 4:
                 System.out.println("Trainer adding swimming discipline");
-                //trainer.addSwimmingDiscipline();
+                trainer.addSwimmerDiscipline();
                 break;
 
             case 5:
-                System.out.println("Trainer adding training result");
-                addInformation.addTrainingResult();
+                System.out.println("Editing List");
+                trainer.editTop5SwimmersList();
                 break;
 
-            case 6: // see result of 5 best swimmer of chosen discipline
-                int swimmingDiscipline = menu.getSwimmingDiscipline();
-                statistic.seeBestSwimmer(swimmingDiscipline);
-
+            case 6:
+                System.out.println("Adding swimmer to Event");
+                trainer.addSwimmersToEvent();
                 break;
 
             case 7:
-                System.out.println("this option is under construction");
+                System.out.println("Trainer adding training result");
+                trainer.addTrainingResult();
+
                 break;
 
             case 8:

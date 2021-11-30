@@ -2,12 +2,15 @@ package Admin;
 
 public class BookKeeper {
 
-    private String username;
-    private String password;
+    //Search for a person using their first name
+    public void findMember() {
 
-    public BookKeeper(String username, String password) {
-        this.username = username;
-        this.password = password;
+        //Search for an active member
+        ActiveMember.get
+        for (int i = 0; i <;i++) {
+
+        }
+
     }
 
     public void calculateFees() {
