@@ -3,6 +3,8 @@ package Controller;
 import Admin.BookKeeper;
 import Admin.Chairman;
 import Admin.Trainer;
+import InputOutput.Menu;
+import Statistics.Statistic;
 
 public class SystemController {
 
@@ -11,6 +13,8 @@ public class SystemController {
      */
     Chairman chairman = new Chairman();
     Trainer trainer = new Trainer("Bellabop","EdwardsMyBoo");
+    Statistic statistic = new Statistic();
+    Menu menu = new Menu();
    // BookKeeper bookKeeper = new BookKeeper();
 
     /**
@@ -138,7 +142,8 @@ public class SystemController {
                 break;
 
             case 8:
-                System.out.println("this option is under construction");
+                int swimmingDiscipline = menu.getSwimmingDiscipline();
+                statistic.seeBestSwimmer(swimmingDiscipline);
                 break;
 
             case 9:

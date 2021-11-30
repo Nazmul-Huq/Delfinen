@@ -6,10 +6,10 @@ public class BookKeeper {
     public void findMember() {
 
         //Search for an active member
-        ActiveMember.get
-        for (int i = 0; i <;i++) {
+        //ActiveMember.get
+/*        for (int i = 0; i <;i++) {
 
-        }
+        }*/
 
     }
 
