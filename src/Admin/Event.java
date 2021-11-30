@@ -1,6 +1,7 @@
 package Admin;
 
 public class Event {//Mo//
+
     //Attributes
     private int Date;
     private int time;
@@ -17,8 +18,8 @@ public class Event {//Mo//
     }
 
     //Methods
-    public void addSwimmer() {
-
+    public void addSwimmers() {
+    Trainer.addSwimmer();
     }
 
 

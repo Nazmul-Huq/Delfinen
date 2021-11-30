@@ -10,8 +10,8 @@ public class SystemController {
      * instantiates necessary objects
      */
     Chairman chairman = new Chairman();
-    Trainer trainer = new Trainer();
-    BookKeeper bookKeeper = new BookKeeper();
+    Trainer trainer = new Trainer("Bellabop","EdwardsMyBoo");
+   // BookKeeper bookKeeper = new BookKeeper();
 
     /**
      * start a given task
@@ -103,35 +103,38 @@ public class SystemController {
 
             case 1:
                 System.out.println("Trainer adding swimmer");
-                //trainer.addSwimmer();
+                trainer.addSwimmer();
                 break;
 
             case 2:
                 System.out.println("Trainer adding swimmer info");
-                //trainer.addSwimmerInfo();
+                trainer.addSwimmerInfo();
                 break;
 
             case 3:
                 System.out.println("Trainer adding swimmer to team");
-                //trainer.addSwimmerToATeam();
+                trainer.addSwimmerToATeam();
                 break;
 
             case 4:
                 System.out.println("Trainer adding swimming discipline");
-                //trainer.addSwimmingDiscipline();
+                trainer.addSwimmerDiscipline();
                 break;
 
             case 5:
-                System.out.println("Trainer adding training result");
-                //trainer.addTrainingResult();
+                System.out.println("Editing List");
+                trainer.editTop5SwimmersList();
                 break;
 
             case 6:
-                System.out.println("this option is under construction");
+                System.out.println("Adding swimmer to Event");
+                trainer.addSwimmersToEvent();
                 break;
 
             case 7:
-                System.out.println("this option is under construction");
+                System.out.println("Trainer adding training result");
+                trainer.addTrainingResult();
+
                 break;
 
             case 8:
