@@ -1,17 +1,16 @@
 package Controller;
 
-import Admin.BookKeeper;
-import Admin.Chairman;
-import Admin.Trainer;
+import InputOutput.Menu;
+import Statistics.Statistic;
 
 public class SystemController {
 
     /**
      * instantiates necessary objects
      */
-    Chairman chairman = new Chairman();
-    Trainer trainer = new Trainer();
-    BookKeeper bookKeeper = new BookKeeper();
+    AddInformation addInformation = new AddInformation();
+    Statistic statistic = new Statistic();
+    Menu menu = new Menu();
 
     /**
      * start a given task
@@ -51,6 +50,7 @@ public class SystemController {
 
             case 1:
                 System.out.println("Chairman adding member");
+                addInformation.addCompetitionSwimmer();
                 //chairman.addMember();
                 break;
 
@@ -123,11 +123,13 @@ public class SystemController {
 
             case 5:
                 System.out.println("Trainer adding training result");
-                //trainer.addTrainingResult();
+                addInformation.addTrainingResult();
                 break;
 
-            case 6:
-                System.out.println("this option is under construction");
+            case 6: // see result of 5 best swimmer of chosen discipline
+                int swimmingDiscipline = menu.getSwimmingDiscipline();
+                statistic.seeBestSwimmer(swimmingDiscipline);
+
                 break;
 
             case 7:
