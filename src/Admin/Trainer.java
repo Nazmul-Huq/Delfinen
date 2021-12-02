@@ -23,7 +23,7 @@ public class Trainer{//Mo//
         System.out.println("Write info of the swimmer below:");
 
         System.out.println("Swimmer Id Number");
-        swimmers.add("SwimmerIdNumber:" + scanner.nextInt());
+        swimmers.add("SwimmerIdNumber:" + scanner.nextInt());       //<--- this has to change
 
 
 
@@ -34,19 +34,6 @@ public class Trainer{//Mo//
 
         System.out.println("Age:");
         swimmers.add("Age:" + scanner.nextInt());
-
-
-        System.out.println("Address:");
-        scanner.nextLine();
-        swimmers.add("Address" + scanner.nextLine());
-
-
-        System.out.println("Email:");
-        swimmers.add("Email" + scanner.nextLine());
-
-
-        System.out.println("PhoneNumber:");
-        swimmers.add("PhoneNumber:" + scanner.nextInt());
 
 
         System.out.println("MemberShipType:");
@@ -75,17 +62,20 @@ public class Trainer{//Mo//
         //adds the Selected Swimmer to a team
 
 
-        //keeps going until you've pressed 9
+        //keeps going 5 times
         System.out.println();
-        System.out.println("choose Who you want to add to a team\nwhen done press 9");
+        System.out.println("choose Who you want to add to a team\n");
         int userChoice = scanner.nextInt();
 
-        do {
+        while (userChoice != 5){
             userChoice = scanner.nextInt();
 
-        } while (userChoice != 9);
 
-        //to be continued
+        }
+        System.out.println("what team do you want to add them to?");
+
+
+
 
     }
 
@@ -123,14 +113,39 @@ public class Trainer{//Mo//
 
 
     public void editTop5SwimmersList() {
-        //can add, remove or edit the list of Top 5 best swimmers in the disciplines
+        //can add or remove swimmer from the list of Top 5 best swimmers in the disciplines
+
+        System.out.println("press 1: to remove swimmer from the list\npress 2: to add a swimmer \npress 3: to go back ");
+        int choice = scanner.nextInt();
+
+        System.out.println(swimmers.size());
+
+        if (choice == 1) {
+            if (swimmers.size() > 0) {
+                System.out.println("who do you want to remove");
+                swimmers.remove(scanner.nextInt());
+
+            } else if (swimmers.size() <= 0) {
+
+                System.out.println("theres no one to remove\n\n");
+            }
+
+
+        } else if (choice == 2) {
+
+            addSwimmer();
+
+        } else if (choice == 3) {
+            System.out.println("returning to main menu...");
+
+        }
 
     }
 
 
 
     public static void addSwimmersToEvent() {
-        //can add the swimmers to an event
+        //adds the swimmers to an event
     }
 
 
