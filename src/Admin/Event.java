@@ -19,7 +19,7 @@ public class Event {//Mo//
 
     //Methods
     public void addSwimmers() {
-    Trainer.addSwimmer();
+    Trainer.addSwimmersToEvent();
     }
 
 
