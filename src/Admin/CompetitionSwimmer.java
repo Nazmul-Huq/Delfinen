@@ -1,5 +1,7 @@
 package Admin;
 
+import java.util.ArrayList;
+
 public class CompetitionSwimmer extends ActiveMember{
 
     /**

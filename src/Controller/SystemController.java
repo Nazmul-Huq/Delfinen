@@ -3,6 +3,8 @@ package Controller;
 import Admin.BookKeeper;
 import Admin.Chairman;
 import Admin.Trainer;
+import InputOutput.Menu;
+import Statistics.Statistic;
 
 public class SystemController {
 
@@ -11,7 +13,9 @@ public class SystemController {
      */
     Chairman chairman = new Chairman();
     Trainer trainer = new Trainer();
-    BookKeeper bookKeeper = new BookKeeper();
+    Statistic statistic = new Statistic();
+    Menu menu = new Menu();
+   // BookKeeper bookKeeper = new BookKeeper();
 
     /**
      * start a given task
@@ -103,39 +107,43 @@ public class SystemController {
 
             case 1:
                 System.out.println("Trainer adding swimmer");
-                //trainer.addSwimmer();
+                trainer.addSwimmer();
                 break;
 
             case 2:
-                System.out.println("Trainer adding swimmer info");
-                //trainer.addSwimmerInfo();
+                System.out.println("swimmers info");
+                trainer.showSwimmerInfo();
                 break;
 
             case 3:
                 System.out.println("Trainer adding swimmer to team");
-                //trainer.addSwimmerToATeam();
+                trainer.addSwimmerToATeam();
                 break;
 
             case 4:
                 System.out.println("Trainer adding swimming discipline");
-                //trainer.addSwimmingDiscipline();
+                trainer.addSwimmerDiscipline();
                 break;
 
             case 5:
-                System.out.println("Trainer adding training result");
-                //trainer.addTrainingResult();
+                System.out.println("Editing List");
+                trainer.editTop5SwimmersList();
                 break;
 
             case 6:
-                System.out.println("this option is under construction");
+                System.out.println("Adding swimmer to Event");
+                trainer.addSwimmersToEvent();
                 break;
 
             case 7:
-                System.out.println("this option is under construction");
+                System.out.println("Trainer adding training result");
+                trainer.addTrainingResult();
+
                 break;
 
             case 8:
-                System.out.println("this option is under construction");
+                int swimmingDiscipline = menu.getSwimmingDiscipline();
+                statistic.seeBestSwimmer(swimmingDiscipline);
                 break;
 
             case 9:

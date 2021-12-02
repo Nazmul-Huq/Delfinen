@@ -2,6 +2,10 @@ package InputOutput;
 
 import java.util.Scanner;
 
+
+/**
+ * written by Nazmul
+ */
 public class Menu {
 
     /**
@@ -58,14 +62,14 @@ public class Menu {
      * print the options that a chairman can do in the system
      */
     private void printChairmanMenuOptions(){
-        System.out.println("1. Add member, 2. Add new employee, 3. Add event, 4.  5. Add team, change Member 6. Change membership 7. Delete member, 9. Exit app");
+        System.out.println("1. Add member, 2. Add new employee, 3. Add event, 4. Add team,  5. change Member 6. Change membership 7. Delete member, 9. Exit app");
     }
 
     /**
      * print the options that a Trainer can do in the system
      */
     private void printTrainerMenuOptions(){
-        System.out.println("1. Add swimmer, 2. Add swimmer info, 3. Add swimmer to team, 4. Add Swimming Discipline, 5. Add training result, 9. Exit app");
+        System.out.println("1. Add swimmer, 2. Show swimmer info, 3. Add swimmer to team, 4. Add Swimming Discipline, 5. Edit List, 6. Add swimmer to event, 7. Add training result, 8. See best swimmer, 9. Exit app");
     }
 
     /**
@@ -73,5 +77,11 @@ public class Menu {
      */
     private void printBookkeeperMenuOptions(){
         System.out.println("1. Calculate fees, 2, Calculate income, 3. calculate debt, 4. Calculate Future Income, 9. Exit app");
+    }
+
+    public int getSwimmingDiscipline(){
+        System.out.println("Chose swimming discipline: 1. Backstroke, 2. Freestyle, 3. Butterfly");
+        int swimmingDiscipline = Integer.parseInt(scanner.nextLine());
+        return swimmingDiscipline;
     }
 }
