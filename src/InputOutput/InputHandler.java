@@ -73,4 +73,10 @@ public class InputHandler {
         int swimmerId = Integer.parseInt(scanner.nextLine());
         return swimmerId;
     }
+
+    public String getFileName(){
+        System.out.println("Enter file name. Follow words by underscore");
+        String fileName = scanner.nextLine();
+        return fileName;
+    }
 }

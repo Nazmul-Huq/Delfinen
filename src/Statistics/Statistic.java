@@ -1,6 +1,8 @@
 package Statistics;
 
 import FileHandler.DelfinFileReader;
+import FileHandler.DelfinFileWriter;
+import InputOutput.InputHandler;
 import InputOutput.OutputHandler;
 
 import java.util.*;
@@ -11,7 +13,9 @@ import java.util.*;
 public class Statistic {
 
     DelfinFileReader delfinFileReader = new DelfinFileReader();
+    DelfinFileWriter delfinFileWriter = new DelfinFileWriter();
     OutputHandler outputHandler = new OutputHandler();
+    InputHandler inputHandler = new InputHandler();
 
 
     public void seeBestSwimmer(int swimmingDisciplineId){
@@ -35,6 +39,11 @@ public class Statistic {
         // print top 5 swimmers detail of the chosen discipline
         System.out.println("Top 5 swimmers with average record");
         outputHandler.printFiveBestSwimmerInformation(fiveBestSwimmers);
+
+        // save top 5 swimmers as pdf
+        String fileName = inputHandler.getFileName();
+        delfinFileWriter.saveTopSwimmerAsPdf(fiveBestSwimmers, fileName);
+
 
 
 /*        // this will print  all swimmers average record of the chosen discipline
