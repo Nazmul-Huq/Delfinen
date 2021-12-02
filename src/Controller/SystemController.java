@@ -12,7 +12,7 @@ public class SystemController {
      * instantiates necessary objects
      */
     Chairman chairman = new Chairman();
-    Trainer trainer = new Trainer();
+    Trainer trainer = new Trainer(1,"Felix Madsen",28349219,"Madsen23@hotmail.com","kongelunden 45");
     Statistic statistic = new Statistic();
     Menu menu = new Menu();
    // BookKeeper bookKeeper = new BookKeeper();

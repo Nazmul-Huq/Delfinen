@@ -1,46 +1,65 @@
 package Admin;
 
+import Controller.AddInformation;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Trainer{//Mo//
+public class Trainer extends Admin{//Mo//
+    AddInformation information = new AddInformation();
+    private String username;
+    private int password;
+
+
 
     //Arraylist to store the names of the swimmers
     static ArrayList<String> swimmers = new ArrayList<String>();
-
+    static ArrayList<Integer> swimmerInfo = new ArrayList<Integer>();
     //Scanner
     static Scanner scanner = new Scanner(System.in);
 
+
+    /**
+     * constructor
+     *
+     * @param id
+     * @param fullName
+     * @param phoneNumber
+     * @param email
+     * @param address
+     */
+    public Trainer(int id, String fullName, int phoneNumber, String email, String address) {
+        super(id, fullName, phoneNumber, email, address);
+    }
 
 
     //Methods
     public static void addSwimmer() {
         //Adds a new Swimmer to train
         //inserted into the swimmer ArrayList
+
+
+        System.out.println("input SwimmerInfo Below: Swimmer id number, Age, Name, MembershipType");
+        int swimmerId = scanner.nextInt();
+        int age = scanner.nextInt();
+        String name = scanner.nextLine() + scanner.nextLine();
+        String membershipType = scanner.nextLine();
+
+
+        System.out.println("Swimmer id number:\t" + swimmerId +
+                "\nAge:\t\t\t\t" + age +
+                "\nName:\t\t\t\t" + name +
+                "\nMembershipType:\t\t " + membershipType);
+
+        String info = "Swimmer id number:\t" + swimmerId +
+                "\nAge:\t\t\t\t" + age +
+                "\nName:\t\t\t\t" + name +
+                "\nMembershipType:\t\t " + membershipType ;
+
+        swimmers.add(info);
+
         System.out.println();
-
-        System.out.println("Write info of the swimmer below:");
-
-        System.out.println("Swimmer Id Number");
-        swimmers.add("SwimmerIdNumber:" + scanner.nextInt());       //<--- this has to change
-
-
-
-        System.out.println("Name:");
-        scanner.nextLine();
-        swimmers.add("Name:" + scanner.nextLine());
-
-
-        System.out.println("Age:");
-        swimmers.add("Age:" + scanner.nextInt());
-
-
-        System.out.println("MemberShipType:");
-        scanner.nextLine();
-        swimmers.add("MemberShipType:" + scanner.nextLine());
-
-
         System.out.println("the Swimmer is added\n");
     }
 
@@ -118,7 +137,7 @@ public class Trainer{//Mo//
         System.out.println("press 1: to remove swimmer from the list\npress 2: to add a swimmer \npress 3: to go back ");
         int choice = scanner.nextInt();
 
-        System.out.println(swimmers.size());
+        System.out.println(swimmers.size() +1);
 
         if (choice == 1) {
             if (swimmers.size() > 0) {
@@ -129,7 +148,6 @@ public class Trainer{//Mo//
 
                 System.out.println("theres no one to remove\n\n");
             }
-
 
         } else if (choice == 2) {
 
@@ -152,8 +170,40 @@ public class Trainer{//Mo//
 
     public void addTrainingResult() {
         //adds the discipline training result
+        information.addTrainingResult();
+
     }
 
 
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPassword(int password) {
+        this.password = password;
+    }
+
+    public static ArrayList<String> getSwimmers() {
+        return swimmers;
+    }
+
+    public static void setSwimmers(ArrayList<String> swimmers) {
+        Trainer.swimmers = swimmers;
+    }
+
+    @Override
+    public String toString() {
+        return "Trainer{" +
+                "username='" + username + '\'' +
+                ", password=" + password +
+                '}';
+    }
 }
