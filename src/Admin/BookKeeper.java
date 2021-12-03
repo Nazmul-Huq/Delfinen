@@ -12,10 +12,12 @@ public class BookKeeper {
         //Find member from text file, get ArrayList
         try {
             Scanner scanner = new Scanner("Files/members.txt");
-            String gertNames;
+            String membersNames;
 
             while (scanner.hasNextLine()) {
-                String
+                membersNames = scanner.nextLine();
+
+                String[] members = membersNames.split(",");
             }
         }
 
