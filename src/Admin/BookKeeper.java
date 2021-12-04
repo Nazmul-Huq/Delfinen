@@ -1,56 +1,30 @@
 package Admin;
 
-import java.util.ArrayList;
+
+import FileHandler.DelfinFileReader;
+
 import java.util.Scanner;
 
 public class BookKeeper {
+    Scanner scanner = new Scanner(System.in);
 
-    //Search for a person using their name from Chairman
-    public void findMember() {
+    //Read the text file
 
-        ArrayList<String> membersList = new ArrayList<>();
-        //Find member from text file, get ArrayList
-        try {
-            Scanner scanner = new Scanner("Files/members.txt");
-            String membersNames;
+    //Find members name in members-file
+    public void findMemberName() {
+        System.out.println("Input members name...");
+        int membersName = Integer.parseInt(scanner.nextLine());
 
-            while (scanner.hasNextLine()) {
-                membersNames = scanner.nextLine();
+        for (int i = 0; i < DelfinFileReader.getMembersList().size(); i++) {
+            String nameToFind = DelfinFileReader.getMembersList().get(i);
 
-                String[] members = membersNames.split(",");
+            if ((nameToFind.equals(membersName))){
+                System.out.println();
+
             }
+
+
+
         }
-
-
-        //Search arraylist for id
-        //If we find the id, copy information for id
-        }
-
-
-
-    //
-
-    //Calculate fees depending on membership types
-    public void calculateFees() {
-
-        //Find the member through id, taken from the method "findMember"
-
-
-
     }
-
-    //Calculate the total income of the club
-    public void calculateIncome() {
-
-    }
-    //Finding a persons debt
-    public void calculateDebt() {
-
-    }
-
-    //Trying to predict future income of the club
-    public void calculateFutureIncome() {
-
-    }
-
 }
