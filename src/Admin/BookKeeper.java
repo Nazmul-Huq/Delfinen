@@ -3,6 +3,8 @@ package Admin;
 
 import FileHandler.DelfinFileReader;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class BookKeeper {
@@ -11,20 +13,13 @@ public class BookKeeper {
     //Read the text file
 
     //Find members name in members-file
-    public void findMemberName() {
+    public void findMemberName() throws FileNotFoundException {
         System.out.println("Input members name...");
-        int membersName = Integer.parseInt(scanner.nextLine());
+        String membersName = scanner.nextLine();
 
-        for (int i = 0; i < DelfinFileReader.getMembersList().size(); i++) {
-            String nameToFind = DelfinFileReader.getMembersList().get(i);
-
-            if ((nameToFind.equals(membersName))){
-                System.out.println();
-
-            }
-
-
-
+        Scanner scanFile = new Scanner(new File("Files/members.txt"));
+        while (scanFile.hasNext()) {
+            String searchName = scanFile.next();
         }
     }
 }
