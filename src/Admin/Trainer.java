@@ -2,11 +2,12 @@ package Admin;
 
 import Controller.AddInformation;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Trainer extends Admin{//Mo//
+public class Trainer extends Admin{//Mo wrote this//
     AddInformation information = new AddInformation();
     private String username;
     private int password;
@@ -15,7 +16,6 @@ public class Trainer extends Admin{//Mo//
 
     //Arraylist to store the names of the swimmers
     static ArrayList<String> swimmers = new ArrayList<String>();
-    static ArrayList<Integer> swimmerInfo = new ArrayList<Integer>();
     //Scanner
     static Scanner scanner = new Scanner(System.in);
 
@@ -40,24 +40,22 @@ public class Trainer extends Admin{//Mo//
         //inserted into the swimmer ArrayList
 
 
-        System.out.println("input SwimmerInfo Below: Swimmer id number, Age, Name, MembershipType");
+        System.out.println("input SwimmerInfo Below: Swimmer id number, Age, Name");
         int swimmerId = scanner.nextInt();
         int age = scanner.nextInt();
         String name = scanner.nextLine() + scanner.nextLine();
-        String membershipType = scanner.nextLine();
+
 
 
         System.out.println("Swimmer id number:\t" + swimmerId +
                 "\nAge:\t\t\t\t" + age +
-                "\nName:\t\t\t\t" + name +
-                "\nMembershipType:\t\t " + membershipType);
+                "\nName:\t\t\t\t" + name);
 
         String info = "Swimmer id number:\t" + swimmerId +
                 "\nAge:\t\t\t\t" + age +
-                "\nName:\t\t\t\t" + name +
-                "\nMembershipType:\t\t " + membershipType ;
+                "\nName:\t\t\t\t" + name;
 
-        swimmers.add(info);
+        swimmers.add(info );
 
         System.out.println();
         System.out.println("the Swimmer is added\n");
@@ -70,7 +68,7 @@ public class Trainer extends Admin{//Mo//
 
         for (String e:swimmers) {
             System.out.println(e);
-            System.out.println();
+            System.out.println("---------------------------");
         }
     }
 
@@ -89,11 +87,11 @@ public class Trainer extends Admin{//Mo//
         while (userChoice != 5){
             userChoice = scanner.nextInt();
 
-
         }
-        System.out.println("what team do you want to add them to?");
+        System.out.println("name of the team");
 
 
+        //store to text file DO NOT USE THE TEAM CLASS!!
 
 
     }
@@ -104,28 +102,37 @@ public class Trainer extends Admin{//Mo//
         //chooses which Discipline to train
 
         System.out.println("what discipline would you like to add a swimmer to?");
+
         System.out.println(" press 1: FreeStyle\n press 2: Butterfly\n press 3: Backstroke\n press 4: BreastStroke\n");
         int choiceOfDiscipline = scanner.nextInt();
 
+
         if (choiceOfDiscipline == 1) {
             System.out.println("FreeStyle is chosen");
-            System.out.println();
+            System.out.println("swimmers to be added");
+            swimmers.get(swimmers.size());
 
         } else if (choiceOfDiscipline == 2) {
             System.out.println("Butterfly is chosen");
-            System.out.println();
+            System.out.println("swimmers to be added");
+            swimmers.get(swimmers.size());
 
         } else if (choiceOfDiscipline == 3) {
             System.out.println("backstroke is chosen");
-            System.out.println();
+            System.out.println("swimmers to be added");
+            swimmers.get(swimmers.size());
 
         } else if (choiceOfDiscipline == 4) {
             System.out.println("Breaststroke is chosen");
-            System.out.println();
+            System.out.println("swimmers to be added");
+            swimmers.get(swimmers.size());
 
         } else if (choiceOfDiscipline > 4) {
             System.out.println("you haven't set other disciplines");
         }
+
+        //add them to a text file
+
 
     }
 
@@ -137,13 +144,13 @@ public class Trainer extends Admin{//Mo//
         System.out.println("press 1: to remove swimmer from the list\npress 2: to add a swimmer \npress 3: to go back ");
         int choice = scanner.nextInt();
 
-        System.out.println(swimmers.size() +1);
 
         if (choice == 1) {
             if (swimmers.size() > 0) {
                 System.out.println("who do you want to remove");
                 swimmers.remove(scanner.nextInt());
 
+                System.out.println("swimmer removed");
             } else if (swimmers.size() <= 0) {
 
                 System.out.println("theres no one to remove\n\n");
@@ -154,16 +161,46 @@ public class Trainer extends Admin{//Mo//
             addSwimmer();
 
         } else if (choice == 3) {
-            System.out.println("returning to main menu...");
+            System.out.println("returning to menu...");
 
         }
+        // has to delete +1 !!fix it later
 
     }
 
 
 
     public static void addSwimmersToEvent() {
-        //adds the swimmers to an event
+        //adds chosen swimmers to an event
+
+        System.out.println("press 1 to add swimmers to event\npress 2 to go back");
+
+        int userChoice = scanner.nextInt();
+
+        if (userChoice == 1) {
+
+            Event event = new Event("22/02/2021",1400,"DGI byen",1);
+
+            System.out.println(event);
+
+            System.out.println("who is going to this event?");
+
+            int choice = scanner.nextInt();
+
+            while (choice <= 5) {
+                choice = scanner.nextInt();
+
+            }
+            System.out.println("swimmers added to event");
+
+            System.out.println("find the Event and List of participants in files");
+
+        } else if (userChoice == 2){
+            System.out.println("returning to menu...");
+            System.out.println();
+
+        }
+        //has to be added to a text file but its ready nonetheless
     }
 
 
