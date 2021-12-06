@@ -2,6 +2,8 @@ import Admin.Team;
 import Controller.SystemController;
 import InputOutput.Menu;
 
+import java.io.FileNotFoundException;
+
 /**
  * written by Nazmul
  */
@@ -13,7 +15,7 @@ public class Delfinen {
     Menu menu = new Menu();
     SystemController controller = new SystemController();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         // create an instance of Delfinen
         Delfinen delfinen = new Delfinen();

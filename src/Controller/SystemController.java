@@ -6,6 +6,8 @@ import Admin.Trainer;
 import InputOutput.Menu;
 import Statistics.Statistic;
 
+import java.io.FileNotFoundException;
+
 public class SystemController {
 
     /**
@@ -15,12 +17,12 @@ public class SystemController {
     Trainer trainer = new Trainer(1,"Felix Madsen",28349219,"Madsen23@hotmail.com","kongelunden 45");
     Statistic statistic = new Statistic();
     Menu menu = new Menu();
-   //BookKeeper bookKeeper = new BookKeeper();
+   BookKeeper bookKeeper = new BookKeeper(true, true);
 
     /**
      * start a given task
      */
-    public void startTask(int actor, int taskToDo){
+    public void startTask(int actor, int taskToDo) throws FileNotFoundException {
 
         if ( actor == 1 ) {
 
@@ -161,13 +163,13 @@ public class SystemController {
     /**
      * start task of bookkeeper
      */
-    private void startBookkeeperActivity(int taskToDo){
+    private void startBookkeeperActivity(int taskToDo) throws FileNotFoundException {
 
         switch (taskToDo){
 
             case 1:
                 System.out.println("Bookkeeper calculating fees");
-                //bookKeeper.calculateFees();
+                bookKeeper.calculateFees();
                 break;
 
             case 2:
