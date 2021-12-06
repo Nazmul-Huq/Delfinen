@@ -22,21 +22,6 @@ public class Event {//Mo//
 
     }
 
-    //Methods
-    public static void eventList(Event swimmerToEvent) {
-        try {
-            File file = new File("Files/Event_and_Participants.txt");
-            FileWriter writer = new FileWriter(file, true);
-
-            writer.close();
-
-        } catch (IOException e) {
-            System.out.println("file couldn't be found");
-            e.printStackTrace();
-        }
-    }
-
-
 
 
     //Getters
