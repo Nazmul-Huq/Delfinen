@@ -27,9 +27,62 @@ public class DelfinFileWriter {
             fr.close();
             System.out.println("Data saved successfully");
         } catch (Exception e) {
-            System.out.println("Failed to add Haiku"); }
+            System.out.println("Failed to add file"); }
     }
 
+
+    public void eventList(int[] swimmerEvent){
+        try {
+            File file = new File("Files/event.txt");
+            FileWriter fr = new FileWriter(file, true);
+            fr.write(swimmerEvent + "\n");
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
+    }
+
+
+    public void swimmerTeam(int[] swimmerEvent){
+        try {
+            File file = new File("Files/teams.txt");
+            FileWriter fr = new FileWriter(file, true);
+
+            fr.write(swimmerEvent[0]);
+            fr.write(",");
+
+            fr.write(swimmerEvent[1]);
+            fr.write(",");
+
+            fr.write(swimmerEvent[2]);
+            fr.write(",");
+
+            fr.write(swimmerEvent[3]);
+            fr.write(",");
+
+            fr.write(swimmerEvent[4]);
+            fr.write(",");
+
+
+
+
+            fr.write("\n");
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
+    }
+
+    public void disciplines(int[] swimmerDisciplines){
+        try {
+            File file = new File("Files/disciplineTraining.txt");
+            FileWriter fr = new FileWriter(file, true);
+            fr.write(swimmerDisciplines + "\n");
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
+    }
 
     /**
      * Nazmul
