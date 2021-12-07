@@ -3,14 +3,13 @@ package Admin;
 import Controller.AddInformation;
 import FileHandler.DelfinFileWriter;
 
-import java.awt.*;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Trainer extends Admin{//Mo wrote this//
+
     AddInformation information = new AddInformation();
+    //Attributes
     private String username;
     private int password;
 
@@ -43,17 +42,14 @@ public class Trainer extends Admin{//Mo wrote this//
     }
 
 
-    //Methods
+    //Methods:
+
+    // Adds a new Swimmer to train
     public static void addSwimmer() {
-        //Adds a new Swimmer to train
-        //inserted into the swimmer ArrayList
-
-
         System.out.println("input SwimmerInfo Below: Swimmer id number, Age, Name");
         int swimmerId = scanner.nextInt();
         int age = scanner.nextInt();
         String name = scanner.nextLine() + scanner.nextLine();
-
 
 
         System.out.println("Swimmer id number:\t" + swimmerId +
@@ -68,53 +64,33 @@ public class Trainer extends Admin{//Mo wrote this//
 
         System.out.println();
         System.out.println("the Swimmer is added\n");
+
+        //inserted into the swimmer ArrayList
     }
 
 
-
+    //Shows information list of swimmers
     public void showSwimmerInfo() {
-        //Shows information list of swimmers
-
         for (String e:swimmers) {
             System.out.println(e);
             System.out.println("---------------------------");
         }
     }
 
-
-
-
+    //adds the Selected Swimmer to a team
     public void addSwimmerToATeam() {
-        //adds the Selected Swimmer to a team
-        int[] userChoices = new int[5];
-
         //keeps going 5 times
         System.out.println();
-        System.out.println("choose Who you want to add to a team\n");
+        System.out.println("choose who you want to add to a team\n");
 
-
-        int count = 0;
-
-        while (count != 5) {
-            int choice = scanner.nextInt();
-            userChoices[count] = choice;
-            count++;
-        }
-
+        fileWriter.swimmerTeam(counter());
 
         System.out.println("team added");
 
-
-        fileWriter.swimmerTeam(userChoices);
     }
 
-
+    //chooses which Discipline to train
     public void addSwimmerDiscipline() {
-
-        //chooses which Discipline to train
-
-        int[] userInput = new int[5];
-
         System.out.println("what discipline would you like to add a swimmer to?");
 
         System.out.println(" press 1: FreeStyle\n press 2: Butterfly\n press 3: Backstroke\n press 4: BreastStroke\n");
@@ -125,70 +101,41 @@ public class Trainer extends Admin{//Mo wrote this//
             System.out.println("FreeStyle is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
 
         } else if (choiceOfDiscipline == 2) {
             System.out.println("Butterfly is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
-
 
         } else if (choiceOfDiscipline == 3) {
-            System.out.println("backstroke is chosen");
+            System.out.println("Backstroke is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
-
 
         } else if (choiceOfDiscipline == 4) {
             System.out.println("Breaststroke is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
-
 
         } else if (choiceOfDiscipline > 4) {
             System.out.println("you haven't set other disciplines");
         }
-
-        fileWriter.disciplines(userInput);
-
-
     }
 
-
+    //can add or remove swimmer from the list of Top 5 best swimmers in the disciplines
     public void editTop5SwimmersList() {
-        //can add or remove swimmer from the list of Top 5 best swimmers in the disciplines
-
         System.out.println("press 1: to remove swimmer from the list\npress 2: to add a swimmer \npress 3: to go back ");
         int choice = scanner.nextInt();
 
@@ -205,40 +152,28 @@ public class Trainer extends Admin{//Mo wrote this//
             }
 
         } else if (choice == 2) {
-
+            //if you want to add a new swimmer instead of deleting one
             addSwimmer();
 
         } else if (choice == 3) {
             System.out.println("returning to menu...");
 
         }
-
     }
 
-
-
-    public static void addSwimmersToEvent() {
-        //adds chosen swimmers to an event
-        int[] choices = new int[5];
-
+    //adds chosen swimmers to an event
+    public void addSwimmersToEvent() {
         System.out.println("press 1 to add swimmers to event\npress 2 to go back");
 
         int userChoice = scanner.nextInt();
 
         if (userChoice == 1) {
 
-
             System.out.println(event);
 
             System.out.println("who is going to this event?");
 
-            int count = 0;
-
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                choices[count] = choice;
-                count++;
-            }
+            fileWriter.eventList(counter());
 
             System.out.println("swimmers added to event");
 
@@ -249,20 +184,27 @@ public class Trainer extends Admin{//Mo wrote this//
             System.out.println();
 
         }
-
-        fileWriter.eventList(choices);
-
-
     }
 
-
-
+    //adds the discipline training result
     public void addTrainingResult() {
-        //adds the discipline training result
         information.addTrainingResult();
-
     }
 
+    //Counter Method
+    public int[] counter() {
+        int[] choices = new int[5];
+
+        int count = 0;
+
+        while (count != 5) {
+            int choice = scanner.nextInt();
+            choices[count] = choice;
+            count++;
+
+        }
+        return choices;
+    }
 
 
     @Override
@@ -271,8 +213,4 @@ public class Trainer extends Admin{//Mo wrote this//
                 ", password=" + password +
                 '}';
     }
-
-
-
-
 }
