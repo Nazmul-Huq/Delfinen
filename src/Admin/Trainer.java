@@ -6,7 +6,6 @@ import FileHandler.DelfinFileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Trainer extends Admin{//Mo wrote this//
 
     AddInformation information = new AddInformation();
@@ -43,16 +42,14 @@ public class Trainer extends Admin{//Mo wrote this//
     }
 
 
-    //Methods
-    public static void addSwimmer() {
-        //Adds a new Swimmer to train
-        //inserted into the swimmer ArrayList
+    //Methods:
 
+    // Adds a new Swimmer to train
+    public static void addSwimmer() {
         System.out.println("input SwimmerInfo Below: Swimmer id number, Age, Name");
         int swimmerId = scanner.nextInt();
         int age = scanner.nextInt();
         String name = scanner.nextLine() + scanner.nextLine();
-
 
 
         System.out.println("Swimmer id number:\t" + swimmerId +
@@ -67,41 +64,33 @@ public class Trainer extends Admin{//Mo wrote this//
 
         System.out.println();
         System.out.println("the Swimmer is added\n");
+
+        //inserted into the swimmer ArrayList
     }
 
 
-
+    //Shows information list of swimmers
     public void showSwimmerInfo() {
-        //Shows information list of swimmers
-
         for (String e:swimmers) {
             System.out.println(e);
             System.out.println("---------------------------");
         }
     }
 
-
+    //adds the Selected Swimmer to a team
     public void addSwimmerToATeam() {
-        //adds the Selected Swimmer to a team
-
         //keeps going 5 times
         System.out.println();
         System.out.println("choose who you want to add to a team\n");
 
         fileWriter.swimmerTeam(counter());
 
-
         System.out.println("team added");
-
-
 
     }
 
-
+    //chooses which Discipline to train
     public void addSwimmerDiscipline() {
-
-        //chooses which Discipline to train
-
         System.out.println("what discipline would you like to add a swimmer to?");
 
         System.out.println(" press 1: FreeStyle\n press 2: Butterfly\n press 3: Backstroke\n press 4: BreastStroke\n");
@@ -124,7 +113,6 @@ public class Trainer extends Admin{//Mo wrote this//
 
             System.out.println("swimmers added");
 
-
         } else if (choiceOfDiscipline == 3) {
             System.out.println("Backstroke is chosen");
             System.out.println("swimmers to be added:");
@@ -146,10 +134,8 @@ public class Trainer extends Admin{//Mo wrote this//
         }
     }
 
-
+    //can add or remove swimmer from the list of Top 5 best swimmers in the disciplines
     public void editTop5SwimmersList() {
-        //can add or remove swimmer from the list of Top 5 best swimmers in the disciplines
-
         System.out.println("press 1: to remove swimmer from the list\npress 2: to add a swimmer \npress 3: to go back ");
         int choice = scanner.nextInt();
 
@@ -166,7 +152,7 @@ public class Trainer extends Admin{//Mo wrote this//
             }
 
         } else if (choice == 2) {
-
+            //if you want to add a new swimmer instead of deleting one
             addSwimmer();
 
         } else if (choice == 3) {
@@ -175,17 +161,13 @@ public class Trainer extends Admin{//Mo wrote this//
         }
     }
 
-
-
+    //adds chosen swimmers to an event
     public void addSwimmersToEvent() {
-        //adds chosen swimmers to an event
-
         System.out.println("press 1 to add swimmers to event\npress 2 to go back");
 
         int userChoice = scanner.nextInt();
 
         if (userChoice == 1) {
-
 
             System.out.println(event);
 
@@ -204,11 +186,9 @@ public class Trainer extends Admin{//Mo wrote this//
         }
     }
 
-
+    //adds the discipline training result
     public void addTrainingResult() {
-        //adds the discipline training result
         information.addTrainingResult();
-
     }
 
     //Counter Method
