@@ -3,14 +3,14 @@ package Admin;
 import Controller.AddInformation;
 import FileHandler.DelfinFileWriter;
 
-import java.awt.*;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Trainer extends Admin{//Mo wrote this//
+
     AddInformation information = new AddInformation();
+    //Attributes
     private String username;
     private int password;
 
@@ -48,7 +48,6 @@ public class Trainer extends Admin{//Mo wrote this//
         //Adds a new Swimmer to train
         //inserted into the swimmer ArrayList
 
-
         System.out.println("input SwimmerInfo Below: Swimmer id number, Age, Name");
         int swimmerId = scanner.nextInt();
         int age = scanner.nextInt();
@@ -82,38 +81,26 @@ public class Trainer extends Admin{//Mo wrote this//
     }
 
 
-
-
     public void addSwimmerToATeam() {
         //adds the Selected Swimmer to a team
-        int[] userChoices = new int[5];
 
         //keeps going 5 times
         System.out.println();
-        System.out.println("choose Who you want to add to a team\n");
+        System.out.println("choose who you want to add to a team\n");
 
-
-        int count = 0;
-
-        while (count != 5) {
-            int choice = scanner.nextInt();
-            userChoices[count] = choice;
-            count++;
-        }
+        fileWriter.swimmerTeam(counter());
 
 
         System.out.println("team added");
 
 
-        fileWriter.swimmerTeam(userChoices);
+
     }
 
 
     public void addSwimmerDiscipline() {
 
         //chooses which Discipline to train
-
-        int[] userInput = new int[5];
 
         System.out.println("what discipline would you like to add a swimmer to?");
 
@@ -125,64 +112,38 @@ public class Trainer extends Admin{//Mo wrote this//
             System.out.println("FreeStyle is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
 
         } else if (choiceOfDiscipline == 2) {
             System.out.println("Butterfly is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
 
 
         } else if (choiceOfDiscipline == 3) {
-            System.out.println("backstroke is chosen");
+            System.out.println("Backstroke is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
-
 
         } else if (choiceOfDiscipline == 4) {
             System.out.println("Breaststroke is chosen");
             System.out.println("swimmers to be added:");
 
-            int count = 0;
+            fileWriter.disciplines(counter());
 
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                userInput[count] = choice;
-                count++;
-            }
             System.out.println("swimmers added");
-
 
         } else if (choiceOfDiscipline > 4) {
             System.out.println("you haven't set other disciplines");
         }
-
-        fileWriter.disciplines(userInput);
-
-
     }
 
 
@@ -212,14 +173,12 @@ public class Trainer extends Admin{//Mo wrote this//
             System.out.println("returning to menu...");
 
         }
-
     }
 
 
 
-    public static void addSwimmersToEvent() {
+    public void addSwimmersToEvent() {
         //adds chosen swimmers to an event
-        int[] choices = new int[5];
 
         System.out.println("press 1 to add swimmers to event\npress 2 to go back");
 
@@ -232,13 +191,7 @@ public class Trainer extends Admin{//Mo wrote this//
 
             System.out.println("who is going to this event?");
 
-            int count = 0;
-
-            while (count != 5) {
-                int choice = scanner.nextInt();
-                choices[count] = choice;
-                count++;
-            }
+            fileWriter.eventList(counter());
 
             System.out.println("swimmers added to event");
 
@@ -249,12 +202,7 @@ public class Trainer extends Admin{//Mo wrote this//
             System.out.println();
 
         }
-
-        fileWriter.eventList(choices);
-
-
     }
-
 
 
     public void addTrainingResult() {
@@ -263,6 +211,20 @@ public class Trainer extends Admin{//Mo wrote this//
 
     }
 
+    //Counter Method
+    public int[] counter() {
+        int[] choices = new int[5];
+
+        int count = 0;
+
+        while (count != 5) {
+            int choice = scanner.nextInt();
+            choices[count] = choice;
+            count++;
+
+        }
+        return choices;
+    }
 
 
     @Override
@@ -271,8 +233,4 @@ public class Trainer extends Admin{//Mo wrote this//
                 ", password=" + password +
                 '}';
     }
-
-
-
-
 }
