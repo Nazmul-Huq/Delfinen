@@ -51,6 +51,7 @@ public class BookKeeper {
         String email = membersList[3];
         int age = Integer.parseInt(membersList[4]);
         String membershipType = membersList[5];
+        String inDebts = membersList[6];
 
         //Find out if member is passive, if true membership price is "passive"
         if (membershipType.equalsIgnoreCase("passive")) {
@@ -72,12 +73,18 @@ public class BookKeeper {
         //Get all the members memberships and calculate that
         for (int i = 0; i < memberInformation.size(); i++) {
 
+
         }
 
     }
 
     public void calculateMemberDebts() {
+        for (int i = 0; i < memberInformation.size(); i++) {
+            String lineOfInformation = memberInformation.get(i);
 
+             if ()
+
+        }
 
     }
 
