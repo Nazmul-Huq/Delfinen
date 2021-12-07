@@ -10,23 +10,13 @@ import java.util.Scanner;
 public class BookKeeper {
     Scanner scanner = new Scanner(System.in);
     DelfinFileReader delfinFileReader = new DelfinFileReader();
+    ArrayList<String> memberInformation = delfinFileReader.getMemberInformation();
 
+    private final int passivePrice = 500;
+    private final int activeUnder18Price = 1000;
+    private final int activeOver18Price = 1600;
+    private final int activeOver60Price = 1200;
 
-    private boolean passiveOrNot;
-    private boolean active;
-    private boolean passive;
-    private boolean activeUnder18;
-    private boolean activeOver18;
-    private boolean activeOver60;
-
-
-
-    public BookKeeper(boolean passiveOrNot, boolean active) {
-        this.passiveOrNot = passiveOrNot;
-        this.active = active;
-
-
-    }
 
     //Find members name in members file
     public String findMemberName() throws FileNotFoundException {
@@ -34,17 +24,15 @@ public class BookKeeper {
         String membersName = scanner.nextLine();
         String membersData = "";
 
-        ArrayList<String> memberInformation = delfinFileReader.getMemberInformation();
-
         for (int i = 0; i < memberInformation.size(); i++) {
-            String line = memberInformation.get(i);
+            String lineOfInformation = memberInformation.get(i);
 
-            String[] membersList = line.split(",");
+            String[] membersList = lineOfInformation.split(",");
 
             String fullName = membersList[1];
 
             if (membersName.equalsIgnoreCase(fullName)) {
-                membersData = line;
+                membersData = lineOfInformation;
 
                 break;
             }
@@ -53,7 +41,6 @@ public class BookKeeper {
     }
 
     public void calculateFees() throws FileNotFoundException {
-        ArrayList<String> memberInformation = delfinFileReader.getMemberInformation();
 
         String membersData = findMemberName();
         String[] membersList = membersData.split(",");
@@ -67,25 +54,23 @@ public class BookKeeper {
 
         //Find out if member is passive, if true membership price is "passive"
         if (membershipType.equalsIgnoreCase("passive")) {
-            System.out.println("Members gonna pay 500 kr.");
+            System.out.println(fullName + " gonna pay " + passivePrice + " kr.");
         } else if (membershipType.equalsIgnoreCase("active"))
 
             if (age < 18) {
-                System.out.println("Members gonna pay 1000 kr.");
+                System.out.println(fullName + " gonna pay " + activeUnder18Price + " kr.");
             } else if (age >= 60 ) {
-                System.out.println("Members gonna pay 1200 kr.");
+                System.out.println(fullName + " gonna pay " + activeOver60Price + " kr.");
             } else {
-                System.out.println("Members gonna pay 1600 kr.");
+                System.out.println(fullName + " gonna pay " + activeOver18Price + " kr.");
             }
     }
 
     public void calculateClubIncome() {
-        ArrayList<String> memberInformation = delfinFileReader.getMemberInformation();
         int clubIncome = 0;
         //Get
         //Get all the members memberships and calculate that
-        for (int i = 0; i < ; i++) {
-
+        for (int i = 0; i < memberInformation.size(); i++) {
 
         }
 

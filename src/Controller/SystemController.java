@@ -18,7 +18,7 @@ public class SystemController {
     Trainer trainer = new Trainer(1,"Felix Madsen",28349219,"Madsen23@hotmail.com","kongelunden 45");
     Statistic statistic = new Statistic();
     Menu menu = new Menu();
-   BookKeeper bookKeeper = new BookKeeper(true, true);
+   BookKeeper bookKeeper = new BookKeeper();
 
     /**
      * start a given task
