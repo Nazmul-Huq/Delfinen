@@ -175,12 +175,12 @@ public class SystemController {
 
             case 2:
                 System.out.println("Bookkeeper calculating income");
-                //bookKeeper.calculateIncome();
+                bookKeeper.calculateIncome();
                 break;
 
             case 3:
                 System.out.println("Bookkeeper calculating debt");
-                //bookKeeper.calculateDebt();
+                bookKeeper.calculateDebt();
                 break;
 
             case 4:

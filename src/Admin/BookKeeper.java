@@ -19,7 +19,7 @@ public class BookKeeper {
 
 
     //Find members name in members file
-    public String findMemberName() throws FileNotFoundException {
+    public String findMemberName() {
         System.out.println("Input members name...");
         String membersName = scanner.nextLine();
         String membersData = "";
@@ -40,7 +40,7 @@ public class BookKeeper {
         return membersData;
     }
 
-    public void calculateFees() throws FileNotFoundException {
+    public void calculateFees() {
 
         String membersData = findMemberName();
         String[] membersList = membersData.split(",");
@@ -51,7 +51,7 @@ public class BookKeeper {
         String email = membersList[3];
         int age = Integer.parseInt(membersList[4]);
         String membershipType = membersList[5];
-        String inDebts = membersList[6];
+        String debts = membersList[6];
 
         //Find out if member is passive, if true membership price is "passive"
         if (membershipType.equalsIgnoreCase("passive")) {
@@ -67,26 +67,56 @@ public class BookKeeper {
             }
     }
 
-    public void calculateClubIncome() {
+    public void calculateIncome() {
+
         int clubIncome = 0;
-        //Get
+        int passiveIncome = 0;
+        int incomeUnder18 = 0;
+        int incomeOver60 = 0;
+        int incomeOver18 = 0;
+
         //Get all the members memberships and calculate that
-        for (int i = 0; i < memberInformation.size(); i++) {
-
-
-        }
-
-    }
-
-    public void calculateMemberDebts() {
         for (int i = 0; i < memberInformation.size(); i++) {
             String lineOfInformation = memberInformation.get(i);
 
-             if ()
+            String[] membersList = lineOfInformation.split(",");
+            int age = Integer.parseInt(membersList[4]);
+            String membershipType = membersList[5];
 
+            if (membershipType.equalsIgnoreCase("passive")) {
+                passiveIncome = passivePrice;
+            } else {
+
+                if (membershipType.equalsIgnoreCase("active") && age < 18) {
+                    incomeUnder18 = activeUnder18Price;
+                } else if (membershipType.equalsIgnoreCase("active") && age >= 60) {
+                    incomeOver60 = activeOver60Price;
+                } else {
+                    incomeOver18 = activeOver18Price;
+                }
+            }
+            clubIncome  = passiveIncome + incomeUnder18 + incomeOver60 + incomeOver18;
+
+            System.out.println(clubIncome);
         }
-
     }
 
+    public void calculateDebt() {
+
+        for (int i = 0; i < memberInformation.size(); i++) {
+            String lineOfInformation = memberInformation.get(i);
+
+            String[] membersList = lineOfInformation.split(",");
+            String fullName = membersList[1];
+            String debts = membersList[6];
+
+             if (debts.equalsIgnoreCase("yes")) {
+                 System.out.println(debts + ", " + "" + fullName);
+
+                 //WORKING BUT ERROR MESSAGES AFTERWARDS!//
+
+             }
+        }
+    }
 }
 
