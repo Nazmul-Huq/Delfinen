@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public interface Login {
 
-    public static void verifyLogin() {
+    public static void verifyLogin(String username, String password, String filepath) {
 
         boolean found = false;
-        String username = "";
-        String password = "";
+        String inputUsername = "";
+        String inputPassword = "";
 
         try{
             Scanner scanFile = new Scanner(new File("Files/logins.txt"));
@@ -17,7 +17,9 @@ public interface Login {
 
             while (scanFile.hasNext() && !found) {
 
+                System.out.println("Please write your username...");
                 username = scanFile.next();
+                System.out.println("Please write your password...");
                 password = scanFile.next();
 
                 if (username.trim().equals(username.trim()) && password.trim().equals(password.trim())) {
@@ -30,7 +32,6 @@ public interface Login {
         catch(Exception e) {
 
             System.out.println("File not found");
-
         }
     }
 }
