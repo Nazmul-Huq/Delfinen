@@ -7,6 +7,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Written by Søs
+ */
+
 public class BookKeeper {
     Scanner scanner = new Scanner(System.in);
     DelfinFileReader delfinFileReader = new DelfinFileReader();
@@ -60,7 +64,7 @@ public class BookKeeper {
 
             if (age < 18) {
                 System.out.println(fullName + " gonna pay " + activeUnder18Price + " kr.");
-            } else if (age >= 60 ) {
+            } else if (age >= 60) {
                 System.out.println(fullName + " gonna pay " + activeOver60Price + " kr.");
             } else {
                 System.out.println(fullName + " gonna pay " + activeOver18Price + " kr.");
@@ -75,47 +79,57 @@ public class BookKeeper {
         int incomeOver60 = 0;
         int incomeOver18 = 0;
 
-        //Get all the members memberships and calculate that
-        for (int i = 0; i < memberInformation.size(); i++) {
-            String lineOfInformation = memberInformation.get(i);
+        try {
 
-            String[] membersList = lineOfInformation.split(",");
-            int age = Integer.parseInt(membersList[4]);
-            String membershipType = membersList[5];
+            //Get all the members memberships and calculate that
+            for (int i = 0; i < memberInformation.size(); i++) {
+                String lineOfInformation = memberInformation.get(i);
 
-            if (membershipType.equalsIgnoreCase("passive")) {
-                passiveIncome = passivePrice;
-            } else {
+                String[] membersList = lineOfInformation.split(",");
+                int age = Integer.parseInt(membersList[4]);
+                String membershipType = membersList[5];
 
-                if (membershipType.equalsIgnoreCase("active") && age < 18) {
-                    incomeUnder18 = activeUnder18Price;
-                } else if (membershipType.equalsIgnoreCase("active") && age >= 60) {
-                    incomeOver60 = activeOver60Price;
+                if (membershipType.equalsIgnoreCase("passive")) {
+                    passiveIncome = passivePrice;
                 } else {
-                    incomeOver18 = activeOver18Price;
-                }
-            }
-            clubIncome  = passiveIncome + incomeUnder18 + incomeOver60 + incomeOver18;
 
-            System.out.println(clubIncome);
+                    if (membershipType.equalsIgnoreCase("active") && age < 18) {
+                        incomeUnder18 = activeUnder18Price;
+                    } else if (membershipType.equalsIgnoreCase("active") && age >= 60) {
+                        incomeOver60 = activeOver60Price;
+                    } else {
+                        incomeOver18 = activeOver18Price;
+                    }
+                }
+                clubIncome = passiveIncome + incomeUnder18 + incomeOver60 + incomeOver18;
+
+                System.out.println(clubIncome);
+            }
+        } catch (Exception e) {
+
         }
     }
 
     public void calculateDebt() {
 
-        for (int i = 0; i < memberInformation.size(); i++) {
-            String lineOfInformation = memberInformation.get(i);
+        try {
 
-            String[] membersList = lineOfInformation.split(",");
-            String fullName = membersList[1];
-            String debts = membersList[6];
+            for (int i = 0; i < memberInformation.size(); i++) {
+                String lineOfInformation = memberInformation.get(i);
 
-             if (debts.equalsIgnoreCase("yes")) {
-                 System.out.println(debts + ", " + "" + fullName);
+                String[] membersList = lineOfInformation.split(",");
+                String fullName = membersList[1];
+                String debts = membersList[6];
 
-                 //WORKING BUT ERROR MESSAGES AFTERWARDS!//
+                if (debts.equalsIgnoreCase("yes")) {
 
-             }
+                    System.out.println(debts + ", " + "" + fullName);
+
+                }
+            }
+        }
+        catch (Exception e) {
+
         }
     }
 }
