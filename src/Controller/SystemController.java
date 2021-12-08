@@ -185,7 +185,7 @@ public class SystemController {
 
             case 4:
                 System.out.println("Bookkeeper calculating future income");
-                //bookKeeper.calculateFutureIncome();
+                bookKeeper.calculateFutureIncome();
                 break;
 
             case 5:

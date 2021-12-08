@@ -1,16 +1,21 @@
 package Admin;
 
 import FileHandler.DelfinFileReader;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Written by Søs
+ * Class written by Søs
  */
 
 public class BookKeeper {
+    //Creating a new scanner
     Scanner scanner = new Scanner(System.in);
+    //Creating a new file reader
     DelfinFileReader delfinFileReader = new DelfinFileReader();
+    //Calling the getMemberInformation method from delfinFileReader class in an ArrayList called membersInformation
     ArrayList<String> memberInformation = delfinFileReader.getMemberInformation();
 
     private final int passivePrice = 500;
@@ -18,20 +23,21 @@ public class BookKeeper {
     private final int activeOver18Price = 1600;
     private final int activeOver60Price = 1200;
 
-
-    //Find members name in members file
+    //Method to find a members name
     public String findMemberName() {
         System.out.println("Input members name...");
+        //Scanning for members name in ArrayList
         String membersName = scanner.nextLine();
         String membersData = "";
 
+        //For loop to go through the ArrayList membersInformation
         for (int i = 0; i < memberInformation.size(); i++) {
             String lineOfInformation = memberInformation.get(i);
-
+            //Separate the data from the ArrayList with every comma
             String[] membersList = lineOfInformation.split(",");
-
+            //Getting the index number for name in the ArrayList
             String fullName = membersList[1];
-
+            //If statement for i
             if (membersName.equalsIgnoreCase(fullName)) {
                 membersData = lineOfInformation;
 
@@ -68,7 +74,7 @@ public class BookKeeper {
             }
     }
 
-    public void calculateIncome() {
+    public int calculateIncome() {
 
         int clubIncome = 0;
         int passiveIncome = 0;
@@ -87,25 +93,30 @@ public class BookKeeper {
                 String membershipType = membersList[5];
 
                 if (membershipType.equalsIgnoreCase("passive")) {
-                    passiveIncome = passivePrice;
+                    //passiveIncome = passivePrice;
+                    clubIncome = clubIncome + passivePrice;
                 } else {
 
                     if (membershipType.equalsIgnoreCase("active") && age < 18) {
-                        incomeUnder18 = activeUnder18Price;
+                        //incomeUnder18 = activeUnder18Price;
+                        clubIncome = clubIncome + activeUnder18Price;
                     } else if (membershipType.equalsIgnoreCase("active") && age >= 60) {
-                        incomeOver60 = activeOver60Price;
+                        //incomeOver60 = activeOver60Price;
+                        clubIncome = clubIncome + activeOver60Price;
                     } else {
-                        incomeOver18 = activeOver18Price;
+                        //incomeOver18 = activeOver18Price;
+                        clubIncome = clubIncome + activeOver18Price;
                     }
                 }
-                clubIncome = passiveIncome + incomeUnder18 + incomeOver60 + incomeOver18;
-
-                System.out.println(clubIncome);
             }
         } catch (Exception e) {
 
         }
+        System.out.println("The current income is: " + clubIncome + " kr.");
+
+        return clubIncome;
     }
+
 
     public void calculateDebt() {
 
@@ -124,10 +135,31 @@ public class BookKeeper {
 
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
+    }
+
+    //Method to calculate how many years in the future you want to see the income
+    public void calculateFutureIncome() {
+
+        //Calling the calculateIncome method to get the current income
+        int currentIncome = calculateIncome();
+        //Setting the expected rate of new members to 10% yearly
+        double expectedRateOfNewMembers = 0.10;
+        //Setting the decimal format to get a limited digits after the full stop
+        DecimalFormat numberFormat = new DecimalFormat("#.000");
+
+        System.out.println("Please enter the period of years");
+        //Setting how many years in the future you want to predict
+        int year = scanner.nextInt();
+
+        //Calculate the future income
+        double futureIncome = currentIncome * Math.pow((1 + expectedRateOfNewMembers), year);
+        //Change the future incomes decimal numbers
+        String formatIncome = numberFormat.format(futureIncome);
+
+        System.out.println("Expected income in " + year + " years: "  + formatIncome + " kr.");
     }
 }
 

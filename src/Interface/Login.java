@@ -3,6 +3,10 @@ package Interface;
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * Class written by Søs
+ */
+
 public interface Login {
 
     public static void verifyLogin(String username, String password, String filepath) {
