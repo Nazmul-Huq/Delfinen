@@ -37,16 +37,17 @@ public class BookKeeper {
             String[] membersList = lineOfInformation.split(",");
             //Getting the index number for name in the ArrayList
             String fullName = membersList[1];
-            //If statement for i
+            //If statement to see if the name is in the ArrayList
             if (membersName.equalsIgnoreCase(fullName)) {
                 membersData = lineOfInformation;
-
+                //Break when the name is found
                 break;
             }
         }
+        //Return the String with the name
         return membersData;
     }
-
+    //Method to
     public void calculateFees() {
 
         String membersData = findMemberName();
