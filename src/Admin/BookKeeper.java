@@ -47,10 +47,11 @@ public class BookKeeper {
         //Return the String with the name
         return membersData;
     }
-    //Method to
+    //Method to calculate the individual members fee
     public void calculateFees() {
-
+        //Calling findMemberName method, and naming it membersData
         String membersData = findMemberName();
+        //Separate the data from the ArrayList with every comma
         String[] membersList = membersData.split(",");
 
         int id = Integer.parseInt(membersList[0]);
@@ -64,17 +65,21 @@ public class BookKeeper {
         //Find out if member is passive, if true membership price is "passive"
         if (membershipType.equalsIgnoreCase("passive")) {
             System.out.println(fullName + " gonna pay " + passivePrice + " kr.");
+            //If false, continues to active
         } else if (membershipType.equalsIgnoreCase("active"))
-
+            //New if - else statement
+            //If the member is active and under 18, getting the active under 18 price
             if (age < 18) {
                 System.out.println(fullName + " gonna pay " + activeUnder18Price + " kr.");
+                //if the member is active and over 60, getting the active over 60 price
             } else if (age >= 60) {
                 System.out.println(fullName + " gonna pay " + activeOver60Price + " kr.");
+                //If the member is active and between 18 anf 59, getting the active over 18 price
             } else {
                 System.out.println(fullName + " gonna pay " + activeOver18Price + " kr.");
             }
     }
-
+    //Method to calculate the clubs income
     public int calculateIncome() {
 
         int clubIncome = 0;
@@ -82,34 +87,35 @@ public class BookKeeper {
         int incomeUnder18 = 0;
         int incomeOver60 = 0;
         int incomeOver18 = 0;
-
+        //Try - catch starts
         try {
 
-            //Get all the members memberships and calculate that
+            //Going through the for loop to get every member information
             for (int i = 0; i < memberInformation.size(); i++) {
                 String lineOfInformation = memberInformation.get(i);
 
+                //Separate the data from the ArrayList with every comma
                 String[] membersList = lineOfInformation.split(",");
+
                 int age = Integer.parseInt(membersList[4]);
                 String membershipType = membersList[5];
 
+                //If statement to see what type of membership the individual members have
                 if (membershipType.equalsIgnoreCase("passive")) {
-                    //passiveIncome = passivePrice;
+                    //Adding the memberships type price to the clubs income
                     clubIncome = clubIncome + passivePrice;
                 } else {
 
                     if (membershipType.equalsIgnoreCase("active") && age < 18) {
-                        //incomeUnder18 = activeUnder18Price;
                         clubIncome = clubIncome + activeUnder18Price;
                     } else if (membershipType.equalsIgnoreCase("active") && age >= 60) {
-                        //incomeOver60 = activeOver60Price;
                         clubIncome = clubIncome + activeOver60Price;
                     } else {
-                        //incomeOver18 = activeOver18Price;
                         clubIncome = clubIncome + activeOver18Price;
                     }
                 }
             }
+            //Try - catch ends
         } catch (Exception e) {
 
         }
