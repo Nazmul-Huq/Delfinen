@@ -1,5 +1,8 @@
 package FileHandler;
 
+import Admin.ActiveMember;
+import Admin.Event;
+import Admin.Trainer;
 import Admin.TrainingResult;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -9,6 +12,8 @@ import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.lang.reflect.Member;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -140,6 +145,61 @@ public class DelfinFileWriter {
         } catch (Exception e){
             System.out.println("file failed to add");
         }
+    }
+
+    //Save new member info:
+    public void addNewMember(ActiveMember memberInfo) {
+
+        try {
+            File file = new File("Files/members.txt");
+            FileWriter fr = new FileWriter(file, true);
+            fr.write(memberInfo + "\n");
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
+    }
+
+    public void newEvent(Event newEvent) {
+        try {
+            File file = new File("Files/event.txt");
+            FileWriter fr = new FileWriter(file, true);
+            fr.write(newEvent + "\n");
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
+    }
+
+    public void addNewEmployee(Trainer newTrainer) {
+        try {
+            File file = new File("Files/employee.txt");
+            FileWriter fr = new FileWriter(file, true);
+            fr.write(newTrainer + "\n");
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
+    }
+
+
+    public void deleteMember(ArrayList<String> memberInfo) {
+        try {
+            File file = new File("Files/members.txt");
+            FileWriter deleteAllData = new FileWriter(file, false);
+            deleteAllData.close();
+
+
+
+            FileWriter fr = new FileWriter(file, true);
+            for (int i = 0; i < memberInfo.size(); i++) {
+                String info = memberInfo.get(i);
+                fr.write(info + "\n");
+            }
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
     }
 
 

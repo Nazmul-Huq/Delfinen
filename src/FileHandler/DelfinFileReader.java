@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class DelfinFileReader {
 
+    DelfinFileWriter fileWriter = new DelfinFileWriter();
+
     /**
      * Nazmul
      * read the training data
@@ -54,4 +56,34 @@ public class DelfinFileReader {
         }
         return memberInformation;
     }
+
+
+    public void deleteMember(int id) {
+
+        ArrayList<String> memberInformation = new ArrayList();
+
+        // line 1 : id 1
+        // line 2 : id 2
+        // line 3 : id 3
+
+        try {
+            Scanner scanFile = new Scanner(new File("Files/members.txt"));
+
+            while (scanFile.hasNextLine()) {
+                String memberDetails = scanFile.nextLine();
+                String[] memberInfo = memberDetails.split(",");
+                int memberId = Integer.parseInt(memberInfo[0]);
+                if (memberId != id) {
+                    memberInformation.add(memberDetails);
+                }
+            }
+            fileWriter.deleteMember(memberInformation);
+            System.out.println("Deleted successfully");
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+            e.printStackTrace();
+        }
+
+    }
+
 }

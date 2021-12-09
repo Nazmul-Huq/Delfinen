@@ -14,7 +14,7 @@ public class SystemController {
     /**
      * instantiates necessary objects
      */
-    Chairman chairman = new Chairman();
+    Chairman chairman = new Chairman(1,"Nanna Hansen", 99999999,"nanhans@live.dk", "Amager Strandvej 22");
     Trainer trainer = new Trainer(1,"Felix Madsen",28349219,"Madsen23@hotmail.com","kongelunden 45");
     Statistic statistic = new Statistic();
     Menu menu = new Menu();
@@ -58,17 +58,17 @@ public class SystemController {
 
             case 1:
                 System.out.println("Chairman adding member");
-                //chairman.addMember();
+                chairman.addNewMember();
                 break;
 
             case 2:
                 System.out.println("Chairman adding employee");
-                //chairman.addNewEmployee();
+                chairman.addNewEmployee();
                 break;
 
             case 3:
                 System.out.println("Chairman adding event");
-                //chairman.addEvent();
+                chairman.addEvent();
                 break;
 
             case 4:
@@ -84,6 +84,7 @@ public class SystemController {
                 break;
             case 7:
                 System.out.println("Chairman deleting member");
+                chairman.deleteMember();
                 break;
 
             case 8:
