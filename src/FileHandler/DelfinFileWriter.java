@@ -183,6 +183,8 @@ public class DelfinFileWriter {
     }
 
 
+    //Sara
+    //Delete Member
     public void deleteMember(ArrayList<String> memberInfo) {
         try {
             File file = new File("Files/members.txt");
@@ -194,6 +196,26 @@ public class DelfinFileWriter {
             FileWriter fr = new FileWriter(file, true);
             for (int i = 0; i < memberInfo.size(); i++) {
                 String info = memberInfo.get(i);
+                fr.write(info + "\n");
+            }
+            fr.close();
+            System.out.println("Data saved successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to add file"); }
+    }
+
+    //Delete employee
+    public void deleteEmployee(ArrayList<String> employeeInfo) {
+        try {
+            File file = new File("Files/employee.txt");
+            FileWriter deleteAllData = new FileWriter(file, false);
+            deleteAllData.close();
+
+
+
+            FileWriter fr = new FileWriter(file, true);
+            for (int i = 0; i < employeeInfo.size(); i++) {
+                String info = employeeInfo.get(i);
                 fr.write(info + "\n");
             }
             fr.close();

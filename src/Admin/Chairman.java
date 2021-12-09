@@ -16,84 +16,130 @@ public class Chairman extends Admin {
     //Scanner
     static Scanner scanner = new Scanner(System.in);
 
+    //File to save in
     static DelfinFileWriter fileWriter = new DelfinFileWriter();
 
     static DelfinFileReader fileReader = new DelfinFileReader();
 
 
-
-    /**
-     * the constructor
-     */
-
+    //The constructor
     public Chairman(int id, String fullName, int phoneNumber, String email, String address) {
         super(id, fullName, phoneNumber, email, address);
-    }
 
+    }
 
     //Enter member info and save
     public static void addNewMember() {
 
-        System.out.println("Please enter new member's info: ");
+        //Add new member
+        System.out.println("Please enter new members info! ");
+
+        System.out.println("Enter memberID: ");
         int memberID = scanner.nextInt();
 
-        ActiveMember newMember = new ActiveMember(memberID, "Hans Hansen", 23222421, "hansh@live.dk", "Amager hovedvej 20B", 19, "Active");
+        System.out.println("Enter members full name: ");
+        String fullName = scanner.nextLine() + scanner.nextLine();
 
-        //Save new member
-        fileWriter.addNewMember(newMember);
-
-        /*
-        System.out.println("Member's ID:");
-        int id = scanner.nextInt();
-
-        System.out.println("Member's full name: ");
-        String fullName = scanner.next();
-
-        System.out.println("Member's phone number: ");
+        System.out.println("Enter members phone number: ");
         int phoneNumber = scanner.nextInt();
 
-        System.out.println("Member's email: ");
-        String email = scanner.next();
+        System.out.println("Enter members email: ");
+        String email = scanner.nextLine() + scanner.nextLine();
 
-        System.out.println("Member's address: ");
-        String address = scanner.next();
+        System.out.println("Enter members address: ");
+        String address = scanner.nextLine();
+
+        System.out.println("Enter members age: ");
+        int age = scanner.nextInt();
+
+        System.out.println("Enter members membership type: ");
+        String membership = scanner.next();
 
 
-         */
+        ActiveMember newMember = new ActiveMember(memberID, fullName, phoneNumber, email, address, age, membership);
 
+        //Save new member
+        System.out.println("New member is now saved in 'members.txt' file");
+        fileWriter.addNewMember(newMember);
 
     }
 
-
-
+    //Add new employee and save
     public static void addNewEmployee() {
 
-        Trainer trainer = new Trainer(1, "Birgit Karlson", 12131415, "birkarl@hotmail.com", "Langsigparken 12");
+        //Add new employee
+        System.out.println("Please enter new employee info! ");
 
+        System.out.println("Enter employeeID: ");
+        int employeeID = scanner.nextInt();
+
+        System.out.println("Enter employees full name: ");
+        String fullName = scanner.nextLine() + scanner.nextLine();
+
+        System.out.println("Enter employees phone number: ");
+        int phoneNumber = scanner.nextInt();
+
+        System.out.println("Enter employees email: ");
+        String email = scanner.next();
+
+        System.out.println("Enter employees address: ");
+        String address = scanner.next();
+
+
+        Trainer trainer = new Trainer(employeeID, fullName, phoneNumber, email, address);
+
+        //Save new employee in file
+        System.out.println("New employee has now been saved in 'employee.txt' file ");
         fileWriter.addNewEmployee(trainer);
 
     }
 
+    //Add new event and save in file
     public static void addEvent() {
 
-        Event event = new Event("22/2-2022", 1045, "Esbjerg svømmehal", 1);
+        //Add new event
+        System.out.println("Add new event and write the information's below! ");
 
+        System.out.println("Enter the date of event: ");
+        String date = scanner.next();
+
+        System.out.println("Enter time of event (Military time only): ");
+        int time = scanner.nextInt();
+
+        System.out.println("Enter the location of event: ");
+        String location = scanner.nextLine() + scanner.nextLine();
+
+        System.out.println("Enter eventID number: ");
+        int ID = scanner.nextInt();
+
+        Event event = new Event(date, time, location, ID);
+
+
+        //Save event in file
+        System.out.println("Event has been saved in 'event.txt' file");
         fileWriter.newEvent(event);
 
     }
 
+    //Delete member from system
     public static void deleteMember() {
 
         System.out.println("Please, choose which member you want to delete... ");
         int id = scanner.nextInt();
 
+        //Delete member from file it has been saved in
         fileReader.deleteMember(id);
 
     }
 
+    //Delete member from system
     public static void deleteEmployee() {
 
+        System.out.println("Please choose employee you want to delete... ");
+        int id = scanner.nextInt();
 
+        //Delete employee from file it has been saved in
+        fileReader.deleteEmployee(id);
 
     }
 

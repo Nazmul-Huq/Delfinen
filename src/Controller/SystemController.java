@@ -88,7 +88,8 @@ public class SystemController {
                 break;
 
             case 8:
-                System.out.println("this option is under construction");
+                System.out.println("Chairman deleting member");
+                chairman.deleteEmployee();
                 break;
 
             case 9:

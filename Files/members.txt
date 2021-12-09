@@ -1,4 +1,3 @@
-1,Heidi Jørgensen,22334480,heidi.com@mail.com,22,active,no
 2,Jimmy Davidson,55738521,thatjimbo@mail.com,17,active,yes
 3,Sanne Christansen,83196347,sanne.hansen@mail.com,67,passive,no
 4,Henning Karlsen,37648961,henning.theman@mail.com,56,passive,no
@@ -7,4 +6,7 @@
 7,Natacha Collins,87491264,n.collins2@mail.com,18,active,yes
 8,Casper Nielsen,85395571,capper69@mail.com,21,active,no
 9,Lise Wolf,56442982,wolf.lise@mail.com,66,active,no
-1,Hans Hansen,23222421,hansh@live.dk,Amager hovedvej 20B,19,Active
+15,Nanna,21212121,b@d.dk,langsigparken,12,Active
+15,Nina,21212121,s@d.dk,Langsigparken,12,Active
+16,Ninan Madsen,12839422,NinanRocks@Hotmail.com,KronprinsFrederiksgade 7,20,passiv
+16,Nina Madsen,24985727,Mojs@hotmail.dk,Kronsgade 48,29,active
