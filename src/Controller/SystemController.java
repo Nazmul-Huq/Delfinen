@@ -15,7 +15,7 @@ public class SystemController {
      * instantiates necessary objects
      */
     Chairman chairman = new Chairman(1,"Nanna Hansen", 99999999,"nanhans@live.dk", "Amager Strandvej 22");
-    Trainer trainer = new Trainer(1,"Felix Madsen",28349219,"Madsen23@hotmail.com","kongelunden 45");
+    Trainer trainer = new Trainer(1,"Felix Madsen",28349219,"Madsen23@hotmail.com","kongelunden 45", "abc", 1);
     Statistic statistic = new Statistic();
     Menu menu = new Menu();
    BookKeeper bookKeeper = new BookKeeper();

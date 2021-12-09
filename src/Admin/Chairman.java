@@ -85,8 +85,14 @@ public class Chairman extends Admin {
         System.out.println("Enter employees address: ");
         String address = scanner.next();
 
+        System.out.println("Enter  username: ");
+        String username = scanner.nextLine() + scanner.nextLine();
 
-        Trainer trainer = new Trainer(employeeID, fullName, phoneNumber, email, address);
+        System.out.println("Enter password: ");
+        int password = scanner.nextInt();
+
+
+        Trainer trainer = new Trainer(employeeID, fullName, phoneNumber, email, address, username, password);
 
         //Save new employee in file
         System.out.println("New employee has now been saved in 'employee.txt' file ");

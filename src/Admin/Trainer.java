@@ -37,8 +37,10 @@ public class Trainer extends Admin{//Mo wrote this//
      * @param email
      * @param address
      */
-    public Trainer(int id, String fullName, int phoneNumber, String email, String address) {
+    public Trainer(int id, String fullName, int phoneNumber, String email, String address, String username, int password) {
         super(id, fullName, phoneNumber, email, address);
+        this.username = username;
+        this.password = password;
     }
 
 
@@ -209,8 +211,6 @@ public class Trainer extends Admin{//Mo wrote this//
 
     @Override
     public String toString() {
-        return "username='" + username + '\'' +
-                ", password=" + password +
-                '}';
+        return  super.toString() + "," + username + "," +  password + "," + username + "," + password;
     }
 }
