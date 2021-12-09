@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 public class Chairman extends Admin {
 
-    //Sara's code
+    /**
+     * SARA'S CODE
+     */
     //Chairman tasks
 
     String username;

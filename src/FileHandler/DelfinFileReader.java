@@ -58,7 +58,9 @@ public class DelfinFileReader {
     }
 
 
-    //Sara
+    /**
+     * SARA'S CODE
+     */
     //Delete member from system
     public void deleteMember(int id) {
 
@@ -107,5 +109,9 @@ public class DelfinFileReader {
         }
 
     }
+
+    /**
+     * SARA'S CODE END
+     */
 
 }

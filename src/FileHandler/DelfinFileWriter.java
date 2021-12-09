@@ -147,6 +147,9 @@ public class DelfinFileWriter {
         }
     }
 
+    /**
+     * SARA'S CODE
+     */
     //Save new member info:
     public void addNewMember(ActiveMember memberInfo) {
 
@@ -160,6 +163,7 @@ public class DelfinFileWriter {
             System.out.println("Failed to add file"); }
     }
 
+    //Save new event info
     public void newEvent(Event newEvent) {
         try {
             File file = new File("Files/event.txt");
@@ -171,6 +175,7 @@ public class DelfinFileWriter {
             System.out.println("Failed to add file"); }
     }
 
+    //Save new employee info
     public void addNewEmployee(Trainer newTrainer) {
         try {
             File file = new File("Files/employee.txt");
@@ -183,7 +188,7 @@ public class DelfinFileWriter {
     }
 
 
-    //Sara
+
     //Delete Member
     public void deleteMember(ArrayList<String> memberInfo) {
         try {
@@ -223,6 +228,10 @@ public class DelfinFileWriter {
         } catch (Exception e) {
             System.out.println("Failed to add file"); }
     }
+
+    /**
+     * SARA'S CODE END
+     */
 
 
 } // class ends here
