@@ -105,7 +105,7 @@ public class BookKeeper {
                     //Adding the memberships type price to the clubs income
                     clubIncome = clubIncome + passivePrice;
                 } else {
-
+                    //New if else statement
                     if (membershipType.equalsIgnoreCase("active") && age < 18) {
                         clubIncome = clubIncome + activeUnder18Price;
                     } else if (membershipType.equalsIgnoreCase("active") && age >= 60) {
@@ -124,24 +124,29 @@ public class BookKeeper {
         return clubIncome;
     }
 
-
+    //Method to calculate who of the members is in debt
     public void calculateDebt() {
 
+        //Try - catch starts
         try {
-
+            //Going through the for loop to get every member information
             for (int i = 0; i < memberInformation.size(); i++) {
                 String lineOfInformation = memberInformation.get(i);
 
+                //Separate the data from the ArrayList with every comma
                 String[] membersList = lineOfInformation.split(",");
+
                 String fullName = membersList[1];
                 String debts = membersList[6];
 
+                //If statement to see if members is in debt
+                //If there is a "yes" at index number 6
                 if (debts.equalsIgnoreCase("yes")) {
-
+                    //Print the statement and the members name
                     System.out.println(debts + ", " + "" + fullName);
-
                 }
             }
+            //Try - catch ends
         } catch (Exception e) {
 
         }
@@ -166,6 +171,7 @@ public class BookKeeper {
         //Change the future incomes decimal numbers
         String formatIncome = numberFormat.format(futureIncome);
 
+        //Print how many years the person wants to see ahead and the expected income that year
         System.out.println("Expected income in " + year + " years: "  + formatIncome + " kr.");
     }
 }
